@@ -1,0 +1,44 @@
+<xml>
+<!-- *ftp root path-->
+<rootDir>d:/ftpserver</rootDir>
+<!-- *server ip-->
+<serverAddr>192.168.3.199</serverAddr>
+<users>
+	<!--username  and password -->
+	<user>
+		<username id="username">admin</username>
+		<password id="password">passwd</password>
+		<!-- Directories that users can view --> 
+		<workDirs>
+			<dir>publicdir</dir>
+			<dir>privatedir</dir>
+		</workDirs>
+		<!--用户对目录拥有的权限，权限分为：可读，可写，可删除覆盖分别用r,w,d表示，没有某项权限则用n表示-->
+		<!--The permissions that users have on the directory are divided into: readable, writable, and deletes, respectively represented by r,w,d, and no certain permissions represented by n-->
+		<permission>r-w-d</permission>
+		<!--Logable status: 0 means normal, 1 means restricted login-->
+		<loginState>0</loginState>
+	</user>
+	<user>
+		<username id="username">user</username>
+		<password id="password">user</password>
+		<workDirs>
+				<dir>publicdir</dir>
+		</workDirs>
+		<permission>r-w-n</permission>
+		<loginState>0</loginState>
+	</user>
+</users>
+<!-- 初始化目录根目录下的文件夹，系统会自动创建配置了的文件夹-->
+<!--Initializes the folder in the root directory, after which the configured folder is automatically created-->
+<initDir>
+	<autoCreate>true</autoCreate>
+	<!--文件夹名称用-分割 -->
+	<!--Folder names are split with -  -->
+	<dirs>publicdir-privatedir</dirs>
+</initDir>
+	<!-- *日志的存放目录-->
+	<!-- logdir-->
+<logDir>d:/logs</logDir>
+<logPrint>false</logPrint>
+</xml>
