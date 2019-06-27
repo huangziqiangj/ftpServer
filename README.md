@@ -1,16 +1,23 @@
-���ʹ��:
-��Ŀ������Ŀ¼�ṹ����������ģ�
-ftpserver�ļ���������һ��ftpServer.jar�ļ��Լ�һ��bin�ļ��С�bin�ļ����д��server.xml�Լ�checkOut.conf
-�ڼ��������server.xml�ļ��󣨸��ļ�����ϸ��ע�����������ã����ڿ���̨����java -jar ./ftpServer.jar�������з����
-��Ҳ����һ��demo��ҿ���ֱ��������
-����Ŀӵ�еĹ��ܣ�
-1.Ȩ�޿��ƣ���ָ���û����ļ��еĿɼ����Լ�����д��ɾ��
-2.��־ϵͳ����ͨ���޸�server.xml��ʵʱ������ϸ��������־��Ĭ��Ϊ�رա��û������в������Զ���¼����־�ļ��������־�ļ���Ŀ¼��server.xml����
-��Ҳ�����ڳ�������ʱ�޸�binĿ¼�µ�checkOut.conf�ļ��е�logcat������ʵʱ������ϸ��־�������Ե�ȡֵΪtrueʱ��ʾ������־,Ϊfalse����ʾ
-3.��ֹ�����ƽ����룬��ʱ����������������λ�����Ŀ��ip����ֹ��½
+如何使用:
+项目的运行目录结构因该是这样的：
 
-��Ŀ����jdk1.8������ʹ��utf-8�ַ������Ҹ��˿������Ѿ��ȶ�����1��֧࣬�ֶ��ֿͻ��˷��ʣ���windows�ͻ���֧����Ϊ���á������п��ܻ���һЩ��ֵ��߼���������ΪΪ������windows�ͻ���
-������windows��ftp�ͻ���û����ȫ��ѭftpЭ����������һ��˺ܴ����������������Ŀ���ܻ���ȱ�㣬��ӭ���ָ����
+ftpserver文件夹下面有一个ftpServer.jar文件以及一个bin文件夹。bin文件夹中存放server.xml以及checkOut.conf
+
+在简单配置完成server.xml文件后（该文件有详细的注释引导您配置），在控制台输入java -jar ./ftpServer.jar即可运行服务端
+
+我也做了一个demo大家可以直接拿来用
+
+该项目拥有的功能：
+1.权限控制，可指定用户对文件夹的可见，以及读、写、删除
+
+2.日志系统，可通过修改server.xml来实时输入详细的运行日志，默认为关闭。用户的敏感操作会自动记录到日志文件，存放日志文件的目录由server.xml配置
+您也可以在程序运行时修改bin目录下的checkOut.conf文件中的logcat属性来实时开启详细日志，该属性的取值为true时显示运行日志,为false不显示
+
+3.防止暴力破解密码，短时间内密码输入错误多次会锁定目标ip，禁止登陆
+
+
+项目基础jdk1.8开发，使用utf-8字符集。我个人开发，已经稳定运行1年多，支持多种客户端访问，对windows客户端支持尤为良好。代码中可能会有一些奇怪的逻辑，那是因为为了适配windows客户端
+，由于windows的ftp客户端没有完全遵循ftp协议卷，所以我花了很大的力气适配他。项目可能还有缺点，欢迎大家指出！
 
 How to use:
 The project's running directory structure should look like this:
