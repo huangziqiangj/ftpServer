@@ -41,13 +41,5 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
-	public static void initPASV(String ip) throws Exception{
-		FtpServer.serverAddr=ip;
-		String[] split = ip.split("\\.");
-		StringBuilder sb=new StringBuilder();
-		for (String string : split) {
-			sb.append(string+(char)44);
-		}
-		FtpServer.loaclAddr=sb.toString();
-	}
+
 }

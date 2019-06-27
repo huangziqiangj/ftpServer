@@ -35,7 +35,7 @@ public class Util {
 				// 根据节点的名称决定是直接获取数据还是继续创建子节点的迭代器,获取每个节点的id,name等等属性可以使用attributes()方法
 				if(name.equals("serverAddr")){
 					String addr = next.getText();
-					Main.initPASV(addr);
+					initPASV(addr);
 				}else if (name.equals("rootDir")) {
 					Main.rootDir = next.getText();
 				} else if (name.equals("users")) {
@@ -111,6 +111,15 @@ public class Util {
 			}
 		}
 
+	}
+	public static void initPASV(String ip) throws Exception{
+		FtpServer.serverAddr=ip;
+		String[] split = ip.split("\\.");
+		StringBuilder sb=new StringBuilder();
+		for (String string : split) {
+			sb.append(string+(char)44);
+		}
+		FtpServer.loaclAddr=sb.toString();
 	}
 
 	/**
